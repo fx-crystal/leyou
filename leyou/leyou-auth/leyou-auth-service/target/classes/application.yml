@@ -1,0 +1,27 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: auth-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 10
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 15 # 15秒不发送就过期
+    prefer-ip-address: true
+
+#jwt需要的自定义配置
+mall:
+  jwt:
+    secret: mall@Login(Auth}*^31)&heiMa% # 用于生存rsa公钥和私钥的密文,越复杂越好
+    pubKeyPath: D:/project_liu/mall_online/code/rsa/rsa.pub # 公钥地址
+    priKeyPath: D:/project_liu/mall_online/code/rsa/rsa.pri # 私钥地址
+    expire: 30   # 过期时间,单位分钟
+    cookieMaxAge: 1800
+    cookieName: MALL_TOKEN
+ribbon:
+  eureka:
+    enabled: true

@@ -1,0 +1,16 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    host: 192.168.159.128
+    username: mall
+    password: mall
+    virtual-host: /mall
+mall:
+  sms:
+    accessKeyId: LTAI4FjcQwEJiaUj5hcDHctd # 自己的accessKeyId
+    accessKeySecret: d2ZbR6J0y04z1hps5glUMLdjDg7IbZ # 自己的AccessKeySecret
+    signName: 蚂蚁商城 # 签名名称
+    verifyCodeTemplate: SMS_179165402 # 模板名称 sms参数均少一位，ID密码请去阿里云官方申请

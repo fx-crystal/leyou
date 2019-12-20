@@ -1,0 +1,34 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/lemall
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+  cloud:
+    refresh:
+      refreshable: none
+  rabbitmq:
+    host: 192.168.159.128
+    virtual-host: /mall
+    password: mall
+    username: mall
+    template:
+      exchange: MALL.ITEM.EXCHANGE
+  redis:
+    host: 192.168.159.128
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+mybatis:
+  type-aliases-package: com.leyou.item.pojo
+
